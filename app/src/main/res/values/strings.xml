@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_title">谁是卧底</string>
+    <string name="app_name">谁是卧底</string>
+    <string name="player_count">游戏人数：</string>
+    <string name="spy_count">卧底人数：</string>
+    <string name="winner_count">胜利人数：</string>
+    <string name="start">开始游戏</string>
+    <string name="again">重新开始</string>
+    <string name="showword">查看</string>
+    <string name="choosespy">请选择卧底</string>
+    <string name="notice">*胜利条件指的是当卧底存活到游戏剩余人数为N人时,卧底胜利。</string>
+    <string name="powerby">\@Lxuanx extends ORZzbl</string>
+    <string name="gobacktogame">返回游戏页面</string>
+    <string name="game_rule_explain">游戏规则说明</string>
+    <string name="whatisthis">游戏说明</string>
+    <string name="whatisthis2">“谁是卧底”实质是聚会游戏《捉鬼》的2.0版本。“快乐大本营”沿用捉鬼2.0版本游戏规则，将之命名为“谁是卧底”的游戏。《捉鬼》是一个非常有趣，风靡全国的比拼语言表述能力、知识面与想象力的游戏。是多人聚会聚餐时的首选欢乐游戏。</string>
+    <string name="gamehelp">游戏规则</string>
+    <string name="gamehelp2">"        1.每人每轮用一句话描述自己拿到的词语，既不能让卧底察觉，也要给同伴以暗示。
+        2.每轮描述完毕，所有在场的人投票选出怀疑谁是卧底，得票最多的人出局。若卧底出局，则游戏结束。若卧底未出局，游戏继续。
+        3.游戏剩余人数等于胜利条件时，卧底胜利"</string>
+    <string name="show_die_mode">显示冤死模式:</string>
+</resources>
