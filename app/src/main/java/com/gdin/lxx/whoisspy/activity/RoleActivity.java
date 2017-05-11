@@ -13,7 +13,9 @@ import com.gdin.lxx.whoisspy.R;
 import com.gdin.lxx.whoisspy.utils.Keys;
 import com.gdin.lxx.whoisspy.utils.Utils;
 
-
+/**
+ * 每个人查看自己角色的界面
+ */
 public class RoleActivity extends Activity {
 
     private int currentNum = 0;

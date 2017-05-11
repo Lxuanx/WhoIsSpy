@@ -22,7 +22,9 @@ import com.gdin.lxx.whoisspy.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 单词管理页面
+ */
 public class WordManagerActivity extends Activity {
     private Button btn_save;
     private Button btn_add;

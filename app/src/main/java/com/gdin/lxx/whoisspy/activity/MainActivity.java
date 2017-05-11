@@ -22,8 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * 进去的主界面
+ */
 public class MainActivity extends Activity {
-    private static final int REQUEST_TO_ROLEACTIVITY = 0;
+    private static final int REQUEST_TO_ROLE_ACTIVITY = 0;
     private Button btn_go_help;
     private Button btn_go_word_manager;
     private boolean[] booleanSpy;
@@ -255,7 +258,7 @@ public class MainActivity extends Activity {
     private void enterRoleActivity() {
         Intent intent = new Intent(MainActivity.this, RoleActivity.class);
         intent.putExtra(Keys.GAME_ROLE_ARRAY, roleArray);
-        startActivityForResult(intent, REQUEST_TO_ROLEACTIVITY);
+        startActivityForResult(intent, REQUEST_TO_ROLE_ACTIVITY);
     }
 
     /**
@@ -263,7 +266,7 @@ public class MainActivity extends Activity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_TO_ROLEACTIVITY) {
+        if (requestCode == REQUEST_TO_ROLE_ACTIVITY) {
             enterBattleActivity();
         }
     }

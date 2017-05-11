@@ -19,7 +19,9 @@ import com.gdin.lxx.whoisspy.utils.Keys;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 猜卧底的页面
+ */
 public class BattleActivity extends Activity {
 
     private int spyWinCount;

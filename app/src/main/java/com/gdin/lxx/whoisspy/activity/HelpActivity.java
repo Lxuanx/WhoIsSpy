@@ -12,7 +12,9 @@ import android.widget.Button;
 
 import com.gdin.lxx.whoisspy.R;
 
-
+/**
+ * 帮助页面
+ */
 public class HelpActivity extends Activity{
 
     @Override
