@@ -5,7 +5,7 @@ import android.util.Log;
 public class Logger {
 
     /**
-     * 控制是否输入Log
+     * 控制是否输入 Log
      */
     private static boolean isShowLog = false;
 
