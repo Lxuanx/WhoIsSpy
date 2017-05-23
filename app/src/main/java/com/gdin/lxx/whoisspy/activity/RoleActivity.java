@@ -87,6 +87,9 @@ public class RoleActivity extends Activity {
         });
     }
 
+    /**
+     * 展示是什么角色
+     */
     private void openWordDialog() {
         new AlertDialog.Builder(this).setTitle("你是" + (currentNum + 1) + "号")
                 .setMessage(roleArray[currentNum])
@@ -103,6 +106,9 @@ public class RoleActivity extends Activity {
                 }).show();
     }
 
+    /**
+     * 禁止退出。。。
+     */
     @Override
     public void onBackPressed() {
         Utils.showToast(this, "全部查看后才可以退出");
