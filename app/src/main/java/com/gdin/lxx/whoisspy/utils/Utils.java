@@ -3,6 +3,8 @@ package com.gdin.lxx.whoisspy.utils;
 import android.content.Context;
 import android.widget.Toast;
 
+import java.util.Random;
+
 
 public class Utils {
 
@@ -34,7 +36,6 @@ public class Utils {
                 break;
             }
         }
-
     }
 
     /**
@@ -45,4 +46,28 @@ public class Utils {
         paramArrayOfInt[j - 1] = paramArrayOfInt[j];
         paramArrayOfInt[j] = temp;
     }
+
+    /**
+     * 蓄水池算法获取产生卧底的数组
+     */
+    public static int[] getSpyInts(int choosePlayerNum, int chooseSpyNum) {
+        int[] playerInts = new int[choosePlayerNum];
+        for (int i = 0; i < choosePlayerNum; i++) {
+            playerInts[i] = i;
+        }
+
+        int[] spyInts = new int[chooseSpyNum];
+        for(int i = 0; i < chooseSpyNum; i++){
+            spyInts[i] = i;
+        }
+        Random random = new Random();
+        for(int i = chooseSpyNum; i < playerInts.length; i++ ){
+            int num = random.nextInt(i + 1);
+            if(num < chooseSpyNum){
+                spyInts[num] = playerInts[i];
+            }
+        }
+        return spyInts;
+    }
+
 }

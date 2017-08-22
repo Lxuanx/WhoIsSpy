@@ -13,6 +13,9 @@
     <string name="gobacktogame">返回游戏页面</string>
     <string name="game_rule_explain">游戏规则说明</string>
     <string name="whatisthis">游戏说明</string>
+    <string name="add_word">添加词语</string>
+    <string name="save_word">保存</string>
+    <string name="to_default">恢复默认</string>
     <string name="whatisthis2">“谁是卧底”实质是聚会游戏《捉鬼》的2.0版本。“快乐大本营”沿用捉鬼2.0版本游戏规则，将之命名为“谁是卧底”的游戏。《捉鬼》是一个非常有趣，风靡全国的比拼语言表述能力、知识面与想象力的游戏。是多人聚会聚餐时的首选欢乐游戏。</string>
     <string name="gamehelp">游戏规则</string>
     <string name="gamehelp2">"        1.每人每轮用一句话描述自己拿到的词语，既不能让卧底察觉，也要给同伴以暗示。

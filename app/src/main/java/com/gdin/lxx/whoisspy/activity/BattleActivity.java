@@ -50,17 +50,15 @@ public class BattleActivity extends Activity {
         initGameData();
 
         initView();
-        initListener();
-        initData();
+        loadData();
     }
 
-    private void initData() {
+    private void loadData() {
         playlist.clear();
         for (int i = 0; i < playerLiveCount; i++) {
             playlist.add(String.valueOf(i + 1));
         }
 
-        tv_middle.setText("请选择卧底");
         showBottomText();
 
         localArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, playlist);
@@ -81,6 +79,7 @@ public class BattleActivity extends Activity {
         tv_middle = (TextView) findViewById(R.id.tv_middle);
         tv_bottom = (TextView) findViewById(R.id.tv_bottom);
         lv_battle = ((ListView) findViewById(R.id.lv_battle));
+        initListener();
     }
 
     private void initGameData() {

@@ -38,12 +38,9 @@ public class WordManagerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_manager);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
         FileUtils.loadFile(this, data);
 
         initView();
-        initListener();
-        initData();
     }
 
     private void initListener() {
@@ -51,13 +48,7 @@ public class WordManagerActivity extends Activity {
         btn_save.setOnClickListener(saveListener);
         btn_default.setOnClickListener(defaultListener);
         btn_go_home.setOnClickListener(quitListener);
-    }
 
-    private void initData() {
-        btn_add.setText("添加词语");
-        btn_save.setText("保存");
-        btn_default.setText("恢复默认");
-        btn_go_home.setText("返回游戏页面");
 
         strAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data);
         lv_word_manager.setAdapter(strAdapter);
@@ -75,6 +66,7 @@ public class WordManagerActivity extends Activity {
         btn_save = ((Button) findViewById(R.id.btn_save));
         btn_default = ((Button) findViewById(R.id.btn_default));
         btn_go_home = ((Button) findViewById(R.id.btn_go_home));
+        initListener();
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent paramKeyEvent) {

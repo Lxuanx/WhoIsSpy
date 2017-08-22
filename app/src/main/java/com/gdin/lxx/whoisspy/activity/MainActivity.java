@@ -50,17 +50,28 @@ public class MainActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         FileUtils.loadFile(this, data);
 
-        initView();
-        initListener();
-        initData();
+        initViews();
     }
 
-    private void initData() {
+    private void initViews() {
+        tv_player_count = ((TextView) findViewById(R.id.tv_player_count));
         tv_player_count.setText("游戏人数:      " + choosePlayerNum + "人");
+        tv_spy_count = ((TextView) findViewById(R.id.tv_spy_count));
         tv_spy_count.setText("卧底人数:      " + chooseSpyNum + "人");
+        tv_winner_count = ((TextView) findViewById(R.id.tv_winner_count));
         tv_winner_count.setText("胜利条件:      " + chooseWinnerNum + "人");
-    }
 
+        btn_start_game = ((Button) findViewById(R.id.btn_start_game));
+        btn_go_word_manager = ((Button) findViewById(R.id.btn_go_word_manager));
+        btn_go_help = ((Button) findViewById(R.id.btn_go_help));
+        cb_show_die_mode = (CheckBox) findViewById(R.id.cb_show_die_mode);
+
+        ll_player_count = (LinearLayout) findViewById(R.id.ll_player_count);
+        ll_spy_count = (LinearLayout) findViewById(R.id.ll_spy_count);
+        ll_winner_count = (LinearLayout) findViewById(R.id.ll_winner_count);
+
+        initListener();
+    }
     private void initListener() {
         ll_player_count.setOnClickListener(new View.OnClickListener() {
             public void onClick(View paramView) {
@@ -96,20 +107,6 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void initView() {
-        tv_player_count = ((TextView) findViewById(R.id.tv_player_count));
-        tv_spy_count = ((TextView) findViewById(R.id.tv_spy_count));
-        tv_winner_count = ((TextView) findViewById(R.id.tv_winner_count));
-        btn_start_game = ((Button) findViewById(R.id.btn_start_game));
-        btn_go_word_manager = ((Button) findViewById(R.id.btn_go_word_manager));
-        btn_go_help = ((Button) findViewById(R.id.btn_go_help));
-        cb_show_die_mode = (CheckBox) findViewById(R.id.cb_show_die_mode);
-
-        ll_player_count = (LinearLayout) findViewById(R.id.ll_player_count);
-        ll_spy_count = (LinearLayout) findViewById(R.id.ll_spy_count);
-        ll_winner_count = (LinearLayout) findViewById(R.id.ll_winner_count);
-    }
-
     /**
      * 获取相应的词组
      *
@@ -117,7 +114,7 @@ public class MainActivity extends Activity {
      * @return 获得该数组下的词语数组
      */
     private String[] getAllCurrentGamePlayerStr(boolean[] booleanArraySpy) {
-        int i = getRandom(data.size());
+        int i = new Random().nextInt(data.size());
         String[] arrayOfString = new String[booleanArraySpy.length];
         String[][] arrayOfString1 = getWord();
         for (int k = 0; k < booleanArraySpy.length; k++) {
@@ -148,15 +145,6 @@ public class MainActivity extends Activity {
                 }).show();
     }
 
-    /**
-     * 获得随机数， 区间为[0,max)
-     *
-     * @param max 最大数
-     * @return 返回随机数
-     */
-    private int getRandom(int max) {
-        return new Random().nextInt(max);
-    }
 
     /**
      * 获得一个玩家的布尔数组, 如果返回为true的话, 即为卧底
@@ -167,21 +155,18 @@ public class MainActivity extends Activity {
         int choosePlayerNum = this.choosePlayerNum;
         int chooseSpyNum = this.chooseSpyNum;
 
-        int[] intArray1 = new int[choosePlayerNum];
-        int[] intArray2 = new int[choosePlayerNum];
         boolean[] booleanArray = new boolean[choosePlayerNum];
-        //把布尔数组都初始化为false,并初始化两个int数组
-        for (int k = 0; k < choosePlayerNum; k++) {
-            intArray1[k] = getRandom(100);
-            intArray2[k] = intArray1[k];
-            booleanArray[k] = false;
+        for (int i = 0; i < choosePlayerNum; i++) {
+            booleanArray[i] = false;
         }
-        Utils.sort(intArray1);
-        for (int m = 0; m < chooseSpyNum; m++) {
-            for (int n = 0; n <= choosePlayerNum; n++) {
-                //最小的前m个数为卧底
-                if (intArray1[m] == intArray2[n]) {
-                    booleanArray[n] = true;
+
+        int[] spyInts = Utils.getSpyInts(choosePlayerNum, chooseSpyNum);
+
+        for (int i = 0; i < chooseSpyNum; i++) {
+            for (int j = 0; j <= choosePlayerNum; j++) {
+                // spyInts 里面的元素作为下标
+                if (spyInts[i] == j) {
+                    booleanArray[j] = true;
                     break;
                 }
             }
